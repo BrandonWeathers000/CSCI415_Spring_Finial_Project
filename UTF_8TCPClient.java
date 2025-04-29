@@ -35,7 +35,7 @@ public class UTF_8TCPClient{
 		Scanner inFromUser = new Scanner(System.in);
 		String message = inFromUser.nextLine();
 		outTo.writeBytes("(" + userName + ")" + " I throw ");
-		outTo.writeBytes("'" + message + "'" + "\r\n");
+		outTo.writeBytes(message + "\r\n");
 		outTo.flush();
 
 		// System.out.println();
