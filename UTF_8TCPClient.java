@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class UTF_8TCPClient{
 	public static void main(String[] args) throws Exception{
-		String host = "172.17.156.200";
+		// String host = "172.17.156.200";
+		String host = "172.17.158.11";
 		int port = 4343;
 
 		try{
@@ -29,11 +30,11 @@ public class UTF_8TCPClient{
 		System.out.println("2");
 		Thread.sleep(1000);
 		System.out.println("1");
-		Thread.sleep(1000);
 		Scanner inFromUser = new Scanner(System.in);
 		String message = inFromUser.nextLine();
-		outTo.writeBytes("User " + host + "'s respoonse is: ");
-		outTo.writeBytes(message + "\r\n");
+		outTo.writeBytes("(");
+		outTo.writeBytes(host + ")" + " I throw ");
+		outTo.writeBytes("'" + message + "'" + "\r\n");
 		outTo.flush();
 
 		// System.out.println();
