@@ -16,11 +16,13 @@ public class UTF_8TCPClient{
 		DataOutputStream outTo = new DataOutputStream(mySocket.getOutputStream());
 
 		// Gaming
+		Scanner ob = new Scanner(System.in);
 		System.out.println("Welcome to rock paper scissors!");
 		System.out.println("-------------------------------");
+		System.out.print("What is your username: ");
+		String userName	= ob.nextLine();
 		System.out.println("Wait for the count of three, then enter either R, P, or S.");
 		System.out.println("When you are ready to continue press ENTER.");
-		Scanner ob = new Scanner(System.in);
 		ob.nextLine();
 
 		System.out.println("Here we go...");
@@ -32,8 +34,7 @@ public class UTF_8TCPClient{
 		System.out.println("1");
 		Scanner inFromUser = new Scanner(System.in);
 		String message = inFromUser.nextLine();
-		outTo.writeBytes("(");
-		outTo.writeBytes(host + ")" + " I throw ");
+		outTo.writeBytes("(" + userName + ")" + " I throw ");
 		outTo.writeBytes("'" + message + "'" + "\r\n");
 		outTo.flush();
 
@@ -45,7 +46,7 @@ public class UTF_8TCPClient{
 		// String response = inFrom.nextLine();
 		// System.out.println("Server: " + response);
 
-		// Close everything
+		// Close Everything
 		inFromUser.close();
 		inFrom.close();
 		outTo.close();
